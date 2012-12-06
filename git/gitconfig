@@ -32,6 +32,10 @@
     # Display the number of commits per author in numerical order
     who = shortlog -sn --
 
+[user]
+	name = Nick Thompson
+	email = nct25@cornell.edu
+
 [color]
     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
     ui = auto
@@ -41,15 +45,6 @@
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
-
-[credential]
-    helper = osxkeychain
-
-[diff]
-    tool = mvimdiff
-
-[difftool]
-    prompt = false
 
 [pretty]
     # tut: http://gitimmersion.com/lab_10.html
