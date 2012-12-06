@@ -32,10 +32,6 @@
     # Display the number of commits per author in numerical order
     who = shortlog -sn --
 
-[user]
-	name = Nick Thompson
-	email = nct25@cornell.edu
-
 [color]
     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
     ui = auto
