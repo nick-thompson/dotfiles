@@ -73,14 +73,14 @@ Vim plugins:
 
 * [ctrlp.vim](https://github.com/kien/ctrlp.vim)
 * [html5.vim](https://github.com/othree/html5.vim)
-* [mustache.vim](https://github.com/juvenn/mustache.vim)
-* [syntastic](https://github.com/scrooloose/syntastic)
-* [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
 * [vim-git](https://github.com/tpope/vim-git)
 * [vim-haml](https://github.com/tpope/vim-haml)
 * [vim-less](https://github.com/groenewege/vim-less)
 * [vim-markdown](https://github.com/tpope/vim-markdown)
 * [vim-pathogen](https://github.com/tpope/vim-pathogen)
+* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+* [snipMate](https://github.com/msanders/snipmate.vim)
+* [NERDTree](https://github.com/scrooloose/nerdtree)
 
 N.B. If your pre-existing Homebrew installation is not in `usr/local` then you
 must add your custom location's `bin` to the PATH in `.bash_profile.local`:
