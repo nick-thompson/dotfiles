@@ -1,4 +1,4 @@
-# Dotfiles (Nicolas Gallagher)
+# Dotfiles
 
 My OS X dotfiles.
 
@@ -10,9 +10,9 @@ Tools](https://developer.apple.com/downloads) and may overwrite existing
 dotfiles in your HOME and `.vim` directories.
 
 ```bash
-$ bash -c "$(curl -fsSL https://raw.github.com/necolas/dotfiles/master/bin/dotfiles)"
+git clone git://github.com/nick-thompson/dotfiles.git ~/.dotfiles
+~/.dotfiles/bin/dotfiles
 ```
-
 
 ## How to update
 
@@ -41,7 +41,7 @@ Options:
         <td>Suppress package updates</td>
     </tr>
     <tr>
-        <td><code>--no-sync</code></td>
+        <td><code>--no-update</code></td>
         <td>Suppress pulling from the remote repository</td>
     </tr>
 </table>
@@ -55,10 +55,8 @@ Homebrew formulae:
 
 * GNU core utilities
 * [git](http://git-scm.com/)
-* [ack](http://betterthangrep.com/)
 * [bash-completion](http://bash-completion.alioth.debian.org/)
 * jpeg
-* [macvim](http://code.google.com/p/macvim/)
 * [node](http://nodejs.org/)
 * [optipng](http://optipng.sourceforge.net/)
 * [phantomjs](http://phantomjs.org/)
@@ -91,38 +89,6 @@ must add your custom location's `bin` to the PATH in `.bash_profile.local`:
 # Add `brew` command's custom location to PATH
 PATH="/opt/acme/bin:$PATH"
 ```
-
-### Custom OS X defaults
-
-Custom OS X settings can be applied by running the following command:
-
-```bash
-$ osxdefaults
-```
-
-### Bootable backup-drive script
-
-These dotfiles include a script that will incrementally back up your data to an
-external, bootable clone of your computer's internal drive. First, make sure
-that the value of `DST` in the `bin/backup` script matches the name of your
-backup-drive. Then run the following command:
-
-```bash
-$ backup
-```
-
-For more information on how to prepare your backup-drive, please read the
-preparatory steps in this post on creating a [Mac OS X bootable backup
-drive](http://nicolasgallagher.com/mac-osx-bootable-backup-drive-with-rsync/).
-
-### Custom bash prompt
-
-I use a custom bash prompt based on the Solarized color palette and influenced
-by @gf3's and @cowboy's custom prompts. Details are in the `bash_prompt` file.
-
-Screenshot:
-
-![](http://i.imgur.com/DSJ1G.png)
 
 ### Local and private configurations
 
@@ -157,7 +123,6 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 The `git/gitconfig` file is copied to `~/.gitconfig`, so any private git
 configuration specified in `~/.bash_profile.local` will not be committed to
 your dotfiles repository.
-
 
 ## Adding new git submodules
 
@@ -204,6 +169,9 @@ changes made to those submodules.
 
 
 ## Acknowledgements
+
+Most of this configuration belongs to Nicolas Gallagher, with only minor
+tweaks here and there from me. This readme isn't even my work ;)
 
 Inspiration and code was taken from many sources, including:
 
