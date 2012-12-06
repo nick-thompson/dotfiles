@@ -1,4 +1,4 @@
-" .vimrc
+" General settings
 
 " !silent is used to suppress error messages if the config line
 " references plugins/colorschemes that might be missing
@@ -11,139 +11,91 @@ silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Call pathogen plugin management
 silent! call pathogen#infect()
 
-if has("autocmd")
-    " Load files for specific filetypes
-    filetype on
-    filetype indent on
-    filetype plugin on
+set background=dark
+colorscheme molokai     " Load color scheme. ir_black is pretty good too
+syntax enable           " Enable syntax highlighting
 
-    " Languages with specific tabs/space requirements
-    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-    " Automatically strip trailing whitespace on file save
-    autocmd BufWritePre *.css,*.html,*.js,*.json,*.md,*.php,*.py,*.rb,*.scss,*.sh,*.txt :call StripTrailingWhitespace()
-endif
+set encoding=utf-8      " Character encoding
+set ruler               " Show <line, column> in status bar
+set number              " Show line numbers
+set bs=2                " Let backspace key make deletions
+set colorcolumn=80      " Mark the 80 column limit
+set ls=2                " Show status bar even with 1 window
+set tabpagemax=100      " Allow 100 tabs max
+set cursorline          " Highlight current row
+set winheight=50        " Window height for organizing multiple files
+set cmdheight=3         " Command window height
 
-if has("syntax")
-    " Enable syntax highlighting
-    syntax enable
-    " Set 256 color terminal support
-    set t_Co=256
-    " Set dark background
-    set background=dark
-    " Set colorscheme
-    silent! colorscheme solarized
-endif
+" Search settings
+set hlsearch            " Highlight search matches
+set ignorecase          " Ignore search case..
+set smartcase           " ..unless I use capitals in query
 
-if has("cmdline_info")
-    " Show the cursor line and column number
-    set ruler
-    " Show partial commands in status line
-    set showcmd
-    " Show whether in insert or replace mode
-    set showmode
-endif
+" Tab settings
+set ts=2                " Tab size is 4 spaces
+set sw=2                " Shift 4 spaces using V + < / V + >
+set expandtab           " Use spaces instead of tabs
 
-if has('statusline')
-    " Always show status line
-    set laststatus=2
-    " Broken down into easily includeable segments
-    " Filename
-    set statusline=%<%f\
-    " Options
-    set statusline+=%w%h%m%r
-    " Current dir
-    set statusline+=\ [%{getcwd()}]
-    " Right aligned file nav info
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
-endif
+" Settings by filetype
+filetype indent on      " Allow indent by filetype
+filetype plugin on      " Allow loading plugins by filetype
 
-if has("wildmenu")
-    " Show a list of possible completions
-    set wildmenu
-    " Tab autocomplete longest possible part of a string, then list
-    set wildmode=longest,list
-    if has ("wildignore")
-        set wildignore+=*.a,*.pyc,*.o,*.orig
-        set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png
-        set wildignore+=.DS_Store,.git,.hg,.svn
-        set wildignore+=*~,*.sw?,*.tmp
-    endif
-endif
+autocmd FileType html
+  \ setlocal shiftwidth=2 |
+  \ setlocal tabstop=2
+autocmd FileType coffee
+  \ setlocal shiftwidth=2 |
+  \ setlocal tabstop=2
+autocmd FileType javascript
+  \ setlocal shiftwidth=2 |
+  \ setlocal tabstop=2
+autocmd FileType css
+  \ setlocal shiftwidth=2 |
+  \ setlocal tabstop=2
+autocmd FileType less
+  \ setlocal shiftwidth=2 |
+  \ setlocal tabstop=2
+autocmd FileType c
+  \ setlocal shiftwidth=2 |
+  \ setlocal tabstop=2
 
-if has("extra_search")
-    " Highlight searches [use :noh to clear]
-    set hlsearch
-    " Highlight dynamically as pattern is typed
-    set incsearch
-    " Ignore case of searches...
-    set ignorecase
-    " ...unless has mixed case
-    set smartcase
-endif
+" Key mappings
 
-" Show hidden files when using ctrlp
-let g:ctrlp_show_hidden = 1
+" Custom plugins
+nmap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
-" Change mapleader
-let mapleader=","
+" Mocha tests
+nnoremap <c-m> :<c-u>!mocha --reporter spec<cr>
 
-" Backspace through everything in INSERT mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
+" Tab Navigating
+map <F5> gT
+map <F6> gt
+imap <F5> <Esc>gTi
+imap <F6> <Esc>gti
 
-" Use line wrapping
-set wrap
-" Use 4 spaces for indentation
-set shiftwidth=4
-" Use 4 spaces for soft tab
-set softtabstop=4
-" Use 4 spaces for tab
-set tabstop=4
-" Expand tab to spaces
-set expandtab
-" Enable line numbers
-set number
-" Highlight current line
-set cursorline
-" Increase default number of lines
-set lines=40
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
+map <Esc>1 1gt
+map <Esc>2 2gt
+map <Esc>3 3gt
+map <Esc>4 4gt
+map <Esc>5 5gt
+map <Esc>6 6gt
+map <Esc>7 7gt
+map <Esc>8 8gt
+map <Esc>9 9gt
+map <Esc>0 10gt
 
-" Show 'invisible' characters
-set list
-" Set characters used to indicate 'invisible' characters
-set listchars=tab:▸\
-set listchars+=trail:·
-set listchars+=nbsp:_
-"set listchars+=eol:¬
+" F2 makes pasting the clipboard preserve indentation
+" F2 again turns that off.
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
 
-" Centralize backups, swapfiles and undo history
-set backupdir=$HOME/.vim/backups
-set directory=$HOME/.vim/swaps
-if exists("&undodir")
-    set undodir=$HOME/.vim/undo
-endif
-set viminfo+=n$HOME/.vim/.viminfo
+let g:netrw_liststyle=3
+" let g:netrw_browse_split=4
+let g:netrw_preview=1
+" let g:netrw_winsize=30
 
-" Load local machine settings if they exist
-if filereadable(glob("$HOME/.vimrc.local"))
-    source $HOME/.vimrc.local
-endif
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <c-j> <c-w>j
 
-" Strip trailing whitespace (,$)
-noremap <leader>$ :call StripTrailingWhitespace()<CR>
-
-" Faster viewport scrolling (3 lines at a time)
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-vnoremap <C-e> 3<C-e>
-vnoremap <C-y> 3<C-y>
-
-" Make `Y` work from the cursor to the end of line (which is more logical)
-nnoremap Y y$
