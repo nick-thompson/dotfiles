@@ -1,20 +1,6 @@
 #!/bin/bash
 
 DOTFILES_DIRECTORY="${HOME}/.dotfiles"
-DOTFILES_TARBALL_PATH="https://github.com/necolas/dotfiles/tarball/master"
-DOTFILES_GIT_REMOTE="https://github.com/necolas/dotfiles"
-
-# Download and extract the repository to the home directory if the directory is missing
-if [[ ! -d ${DOTFILES_DIRECTORY} ]]; then
-    printf "$(tput setaf 7)Downloading dotfiles...\033[m\n"
-    mkdir ${DOTFILES_DIRECTORY}
-    # Get the tarball
-    curl -fsSLo ${HOME}/dotfiles.tar.gz ${DOTFILES_TARBALL_PATH}
-    # Extract to the dotfiles directory
-    tar -zxf ${HOME}/dotfiles.tar.gz --strip-components 1 -C ${DOTFILES_DIRECTORY}
-    # Remove the tarball
-    rm -rf ${HOME}/dotfiles.tar.gz
-fi
 
 cd ${DOTFILES_DIRECTORY}
 
@@ -33,8 +19,8 @@ fi
 for opt in $@
 do
     case $opt in
-        --no-packages) no_packages=true ;;
-        --no-sync) no_sync=true ;;
+        --no-packages) skip_packages=true ;;
+        --no-update) skip_update=true ;;
         -*|--*) e_warning "Warning: invalid option $opt" ;;
     esac
 done
@@ -42,8 +28,7 @@ done
 # Before relying on Homebrew, check that packages can be compiled
 if ! type_exists 'gcc'; then
     e_error "The XCode Command Line Tools must be installed first."
-    printf "  Download them from: https://developer.apple.com/downloads\n"
-    printf "  Then run: bash ~/.dotfiles/bin/dotfiles\n"
+    echo "  https://developer.apple.com/downloads"
     exit 1
 fi
 
@@ -61,21 +46,8 @@ if ! type_exists 'git'; then
     brew install git
 fi
 
-# Initialize the git repository if it's missing
-if ! is_git_repo; then
-    e_header "Initializing git repository..."
-    git init
-    git remote add origin ${DOTFILES_GIT_REMOTE}
-    git fetch origin master
-    # Reset the index and working tree to the fetched HEAD
-    # (submodules are cloned in the subsequent sync step)
-    git reset --hard FETCH_HEAD
-    # Remove any untracked files
-    git clean -fd
-fi
-
 # Conditionally sync with the remote repository
-if [[ $no_sync ]]; then
+if [[ $skip_update ]]; then
     printf "Skipped dotfiles sync.\n"
 else
     e_header "Syncing dotfiles..."
@@ -86,7 +58,7 @@ else
 fi
 
 # Install and update packages
-if [[ $no_packages ]]; then
+if [[ $skip_packages ]]; then
     printf "Skipped package installations.\n"
 else
     printf "Updating packages...\n"
@@ -121,22 +93,21 @@ mirrorfiles() {
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "vim"                ".vim"
-    link "vim/gvimrc"         ".gvimrc"
     link "vim/vimrc"          ".vimrc"
 
     e_success "Dotfiles update complete!"
 }
 
 # Verify that the user wants to proceed before potentially overwriting files
-printf "\n"
+echo
 e_warning "Warning: This may overwrite your existing dotfiles."
 read -p "Continue? (y/n) " -n 1
-printf "\n"
+echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     mirrorfiles
     source ${HOME}/.bash_profile
 else
-    printf "Aborting...\n"
+    echo "Aborting..."
     exit 1
 fi
