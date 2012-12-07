@@ -3,7 +3,7 @@
 " !silent is used to suppress error messages if the config line
 " references plugins/colorschemes that might be missing
 
-" Disable Vi compatibility
+" Disable vi compatibility
 set nocompatible
 
 " Point to location of pathogen submodule (since it's not in .vim/autoload)
@@ -11,10 +11,12 @@ silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Call pathogen plugin management
 silent! call pathogen#infect()
 
+" Colors
 set background=dark
 colorscheme molokai     " Load color scheme. ir_black is pretty good too
 syntax enable           " Enable syntax highlighting
 
+" General
 set encoding=utf-8      " Character encoding
 set ruler               " Show <line, column> in status bar
 set number              " Show line numbers
@@ -25,6 +27,9 @@ set tabpagemax=100      " Allow 100 tabs max
 set cursorline          " Highlight current row
 set winheight=50        " Window height for organizing multiple files
 set cmdheight=3         " Command window height
+set wildmenu            " Command completion suggestions
+set scrolloff=3         " Maintain more space around the cursor
+set visualbell
 
 " Search settings
 set hlsearch            " Highlight search matches
@@ -32,8 +37,8 @@ set ignorecase          " Ignore search case..
 set smartcase           " ..unless I use capitals in query
 
 " Tab settings
-set ts=2                " Tab size is 4 spaces
-set sw=2                " Shift 4 spaces using V + < / V + >
+set ts=4                " Tab size is 4 spaces
+set sw=4                " Shift 4 spaces using V + < / V + >
 set expandtab           " Use spaces instead of tabs
 
 " Settings by filetype
@@ -59,13 +64,11 @@ autocmd FileType c
   \ setlocal shiftwidth=2 |
   \ setlocal tabstop=2
 
-" Key mappings
+" Map leader
+let mapleader = ','
 
-" Custom plugins
+" Find all occurrences of the word under the cursor
 nmap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-
-" Mocha tests
-nnoremap <c-m> :<c-u>!mocha --reporter spec<cr>
 
 " Tab Navigating
 map <F5> gT
@@ -73,29 +76,22 @@ map <F6> gt
 imap <F5> <Esc>gTi
 imap <F6> <Esc>gti
 
-map <Esc>1 1gt
-map <Esc>2 2gt
-map <Esc>3 3gt
-map <Esc>4 4gt
-map <Esc>5 5gt
-map <Esc>6 6gt
-map <Esc>7 7gt
-map <Esc>8 8gt
-map <Esc>9 9gt
-map <Esc>0 10gt
-
 " F2 makes pasting the clipboard preserve indentation
 " F2 again turns that off.
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 
-let g:netrw_liststyle=3
-" let g:netrw_browse_split=4
-let g:netrw_preview=1
-" let g:netrw_winsize=30
+" Open NERDTree with Ctrl+o
+map <c-o> :NERDTree<cr>
 
+" Window navigation
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 map <c-j> <c-w>j
+map <c-k> <c-w>k
 
+" Source vimrc on file save
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
