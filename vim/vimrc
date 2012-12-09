@@ -29,7 +29,8 @@ set winheight=50        " Window height for organizing multiple files
 set cmdheight=3         " Command window height
 set wildmenu            " Command completion suggestions
 set scrolloff=3         " Maintain more space around the cursor
-set visualbell
+set visualbell          " Disable the warning bell
+set nowrap              " Don't wrap long lines
 
 " Search settings
 set hlsearch            " Highlight search matches

@@ -19,3 +19,6 @@ Thumbs.db
 *.sw?
 *.vi
 *.swp
+
+# Folders
+node_modules
