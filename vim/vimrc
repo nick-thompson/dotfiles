@@ -29,7 +29,6 @@ set cmdheight=3         " Command window height
 set wildmenu            " Command completion suggestions
 set scrolloff=3         " Maintain more space around the cursor
 set visualbell          " Disable the warning bell
-set nowrap              " Don't wrap long lines
 
 " Search settings
 set hlsearch            " Highlight search matches
