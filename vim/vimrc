@@ -91,6 +91,8 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 
 " Source vimrc on file save
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+autocmd bufwritepost .vimrc source $MYVIMRC
+
+" Open NERDTree automatically
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd w
