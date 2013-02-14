@@ -21,7 +21,6 @@ set encoding=utf-8      " Character encoding
 set ruler               " Show <line, column> in status bar
 set number              " Show line numbers
 set bs=2                " Let backspace key make deletions
-set colorcolumn=80      " Mark the 80 column limit
 set ls=2                " Show status bar even with 1 window
 set tabpagemax=100      " Allow 100 tabs max
 set cursorline          " Highlight current row
@@ -29,6 +28,8 @@ set cmdheight=3         " Command window height
 set wildmenu            " Command completion suggestions
 set scrolloff=3         " Maintain more space around the cursor
 set visualbell          " Disable the warning bell
+set colorcolumn=80      " Mark the 80 column limit
+hi  ColorColumn guibg=#333436
 
 " Search settings
 set hlsearch            " Highlight search matches
