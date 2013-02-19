@@ -35,7 +35,7 @@ GREEN=$(tput setaf 2)
 WHITE=$(tput setaf 7)
 
 style_symbol="\[${RESET}${MAGENTA}\]"
-style_path="\[${RESET}${GREEN}\]"
+style_path="\[${RESET}${ORANGE}\]"
 style_chars="\[${RESET}${WHITE}\]"
 style_branch="${CYAN}"
 
