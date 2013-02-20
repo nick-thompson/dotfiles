@@ -13,8 +13,8 @@ silent! call pathogen#infect()
 
 " Colors
 set background=dark
-colorscheme molokai     " Load color scheme. ir_black is pretty good too
 syntax enable           " Enable syntax highlighting
+colorscheme molokai     " Load color scheme. ir_black is pretty good too
 
 " General
 set encoding=utf-8      " Character encoding
