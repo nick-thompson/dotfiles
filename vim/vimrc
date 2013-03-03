@@ -91,6 +91,13 @@ map <c-h> <c-w>h
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 
+" Clear search matches
+nnoremap <leader><space> :noh<cr>
+
+" Tab to jump around matching brackets
+nnoremap <tab> %
+vnoremap <tab> %
+
 " Source vimrc on file save
 autocmd bufwritepost .vimrc source $MYVIMRC
 
