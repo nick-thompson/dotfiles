@@ -19,41 +19,38 @@ Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
 
+" Settings
 syntax on                       " Enable syntax highlighting
 filetype plugin indent on       " Required by Vundle
 
-" Colors
-set background=dark
-colorscheme molokai     " Load color scheme. ir_black is pretty good too
+colorscheme molokai
 
 " General
-set encoding=utf-8      " Character encoding
-set ruler               " Show <line, column> in status bar
-set number              " Show line numbers
-set bs=2                " Let backspace key make deletions
-set ls=2                " Show status bar even with 1 window
-set tabpagemax=100      " Allow 100 tabs max
-set cursorline          " Highlight current row
-set cmdheight=3         " Command window height
-set wildmenu            " Command completion suggestions
-set scrolloff=3         " Maintain more space around the cursor
-set visualbell          " Disable the warning bell
-set colorcolumn=80      " Mark the 80 column limit
+set encoding=utf-8              " Character encoding
+set ruler                       " Show <line, column> in status bar
+set number                      " Show line numbers
+set bs=2                        " Let backspace key make deletions
+set ls=2                        " Show status bar even with 1 window
+set tabpagemax=100              " Allow 100 tabs max
+set cursorline                  " Highlight current row
+set cmdheight=3                 " Command window height
+set wildmenu                    " Command completion suggestions
+set scrolloff=3                 " Maintain more space around the cursor
+set visualbell                  " Disable the warning bell
+set hlsearch                    " Highlight search matches
+set ignorecase                  " Ignore search case..
+set smartcase                   " ..unless I use capitals in query
+set colorcolumn=80              " Mark the 80 column limit
 hi  ColorColumn guibg=#333436
 
-" Search settings
-set hlsearch            " Highlight search matches
-set ignorecase          " Ignore search case..
-set smartcase           " ..unless I use capitals in query
-
 " Tab settings
-set ts=4                " Tab size is 4 spaces
-set sw=4                " Shift 4 spaces using V + < / V + >
-set expandtab           " Use spaces instead of tabs
+set ts=4                        " Tab size is 4 spaces
+set sw=4                        " Shift 4 spaces using V + < / V + >
+set expandtab                   " Use spaces instead of tabs
 
 " Settings by filetype
-filetype indent on      " Allow indent by filetype
-filetype plugin on      " Allow loading plugins by filetype
+filetype indent on              " Allow indent by filetype
+filetype plugin on              " Allow loading plugins by filetype
 
 autocmd FileType html
   \ setlocal shiftwidth=2 |
