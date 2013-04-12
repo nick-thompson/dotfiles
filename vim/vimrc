@@ -17,6 +17,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'airblade/vim-gitgutter'
 
 syntax on                       " Enable syntax highlighting
 filetype plugin indent on       " Required by Vundle
