@@ -2,7 +2,24 @@
 " Author: Nick THompson
 " Source: https://github.com/nick-thompson/dotfiles
 
-set nocompatible
+set nocompatible                " Disable vi compatibility
+filetype off                    " Required by Vundle
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Bundles
+Bundle 'gmarik/vundle'
+
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'groenewege/vim-less'
+Bundle 'tpope/vim-markdown'
+Bundle 'othree/html5.vim'
+Bundle 'scrooloose/nerdtree'
+
+syntax on                       " Enable syntax highlighting
+filetype plugin indent on       " Required by Vundle
 
 " Colors
 set background=dark
