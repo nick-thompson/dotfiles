@@ -1,15 +1,8 @@
-" General settings
+" vimrc
+" Author: Nick THompson
+" Source: https://github.com/nick-thompson/dotfiles
 
-" !silent is used to suppress error messages if the config line
-" references plugins/colorschemes that might be missing
-
-" Disable vi compatibility
 set nocompatible
-
-" Point to location of pathogen submodule (since it's not in .vim/autoload)
-silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
-" Call pathogen plugin management
-silent! call pathogen#infect()
 
 " Colors
 set background=dark
