@@ -71,26 +71,30 @@ autocmd FileType c
   \ setlocal shiftwidth=2 |
   \ setlocal tabstop=2
 
-" Map leader
+" Key mappings
 let mapleader = ','
 
-" Find all occurrences of the word under the cursor
-nmap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+" Disable arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
-" Tab Navigating
-map <F5> gT
-map <F6> gt
-imap <F5> <Esc>gTi
-imap <F6> <Esc>gti
+" Switch between / delete buffers
+noremap <tab> :bn<CR>
+noremap <S-tab> :bp<CR>
+nmap <leader>d :bd<CR>
+nmap <leader>D :bufdo bd<CR>
 
 " F2 makes pasting the clipboard preserve indentation
 " F2 again turns that off.
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
-
-" Open NERDTree with Ctrl+o
-map <c-o> :NERDTree<cr>
 
 " Window navigation
 map <c-l> <c-w>l
@@ -101,13 +105,11 @@ map <c-k> <c-w>k
 " Clear search matches
 nnoremap <leader><space> :noh<cr>
 
-" Tab to jump around matching brackets
-nnoremap <tab> %
-vnoremap <tab> %
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
-" Source vimrc on file save
-autocmd bufwritepost .vimrc source $MYVIMRC
-
-" Open NERDTree automatically
+" Open NERDTree when Vim opens
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd w
