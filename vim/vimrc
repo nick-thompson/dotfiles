@@ -18,6 +18,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'wavded/vim-stylus'
 
 " Settings
 syntax on                       " Enable syntax highlighting
