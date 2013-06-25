@@ -41,6 +41,7 @@ set visualbell                  " Disable the warning bell
 set hlsearch                    " Highlight search matches
 set ignorecase                  " Ignore search case..
 set smartcase                   " ..unless I use capitals in query
+set autoread                    " Auto read files on change
 set colorcolumn=80              " Mark the 80 column limit
 hi  ColorColumn guibg=#333436
 
