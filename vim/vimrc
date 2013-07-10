@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Shougo/unite.vim'
+Bundle 'bling/vim-airline'
 
 " Syntax bundles
 Bundle 'pangloss/vim-javascript'
@@ -106,6 +107,9 @@ function! s:unite_settings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
+
+" Airline
+let g:airline_theme='simple'
 
 " Switch between / delete buffers
 noremap <tab> :bn<CR>
