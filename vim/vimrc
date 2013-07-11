@@ -129,6 +129,9 @@ map <c-h> <c-w>h
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 
+" Shortcuts
+nnoremap <leader>s "_diwP
+
 " Clear search matches
 nnoremap <leader><space> :noh<cr>
 
