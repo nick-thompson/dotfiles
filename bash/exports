@@ -7,7 +7,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Make vim the default editor
-export EDITOR="vim"
+export EDITOR="mvim"
 
 # Don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
