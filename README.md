@@ -21,7 +21,7 @@ You should run the update when:
 * You make a change to `~/.dotfiles/git/gitconfig` (the only file that is
   copied rather than symlinked).
 * You want to pull changes from the remote repository.
-* You want to update Homebrew formulae and Node packages.
+* You want to update Homebrew formulae.
 
 Run the dotfiles command:
 
@@ -57,30 +57,10 @@ Homebrew formulae:
 * [git](http://git-scm.com/)
 * [bash-completion](http://bash-completion.alioth.debian.org/)
 * jpeg
-* [node](http://nodejs.org/)
 * [optipng](http://optipng.sourceforge.net/)
 * [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
 * [wget](http://www.gnu.org/software/wget/)
-
-Node packages:
-
-* [bower](http://twitter.github.com/bower/)
-* [grunt](http://gruntjs.com/)
-* [jshint](http://www.jshint.com/)
-
-Vim plugins:
-
-* [ctrlp.vim](https://github.com/kien/ctrlp.vim)
-* [html5.vim](https://github.com/othree/html5.vim)
-* [vim-git](https://github.com/tpope/vim-git)
-* [vim-haml](https://github.com/tpope/vim-haml)
-* [vim-less](https://github.com/groenewege/vim-less)
-* [vim-markdown](https://github.com/tpope/vim-markdown)
-* [vim-pathogen](https://github.com/tpope/vim-pathogen)
-* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
-* [snipMate](https://github.com/msanders/snipmate.vim)
-* [NERDTree](https://github.com/scrooloose/nerdtree)
 
 N.B. If your pre-existing Homebrew installation is not in `usr/local` then you
 must add your custom location's `bin` to the PATH in `.bash_profile.local`:
