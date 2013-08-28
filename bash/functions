@@ -17,3 +17,20 @@ function pyserver() {
     # manually with just a few lines of code.
     python -c $'import SimpleHTTPServer;\nSimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map[""] = "text/plain";\nSimpleHTTPServer.test();' "$port"
 }
+
+# Push updates in ~/Music to the sdcard on my phone
+function msync() {
+    local ip="192.168.1.110"
+    local from="/Users/nick/Music"
+    local dest="root@${ip}:/sdcard/Music/"
+
+    # Ping the phone before trying to sync
+    ping -c 1 ${ip} > /dev/null
+    if [[ $? == 0 ]]; then
+        # Found it, lets go
+        rsync -vzrt --chmod=ugo=rwX --rsync-path=bin/rsync ${from} ${dest}
+    else
+        echo "The phone could not be located on the network."
+        return 1
+    fi
+}
