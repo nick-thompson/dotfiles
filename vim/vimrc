@@ -122,6 +122,3 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-" Open NERDTree when Vim opens
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd w
