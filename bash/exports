@@ -4,7 +4,6 @@
 
 # Colors
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Make vim the default editor
 export EDITOR="mvim"
