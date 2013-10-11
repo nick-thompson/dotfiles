@@ -29,7 +29,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 syntax on                       " Enable syntax highlighting
 filetype plugin indent on       " Required by Vundle
 
-colorscheme molokai
+colorscheme smyck
 
 " General
 set encoding=utf-8              " Character encoding
