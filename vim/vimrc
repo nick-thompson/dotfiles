@@ -14,7 +14,6 @@ Bundle 'gmarik/vundle'
 " Functional bundles
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'Shougo/unite.vim'
 Bundle 'bling/vim-airline'
 
 " Syntax bundles
@@ -91,22 +90,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('file_rec', 'ignore_pattern', 'node_modules')
-nnoremap <leader>t :<C-r> Unite -no-split -buffer-name=files   -start-insert file_rec buffer<cr>
-nnoremap <leader>b :<C-r> Unite -no-split -buffer-name=buffers -start-insert buffer<cr>
-nnoremap <leader>y :<C-r> Unite -no-split -buffer-name=yank    history/yank<cr>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
 
 " Airline
 let g:airline_theme='simple'
