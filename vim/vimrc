@@ -63,6 +63,9 @@ autocmd FileType python
   \ setlocal sw=4 |
   \ setlocal ts=4
 
+" Airline
+let g:airline_theme='simple'
+
 " Key mappings
 let mapleader = ','
 
@@ -76,9 +79,6 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Airline
-let g:airline_theme='simple'
-
 " F2 makes pasting the clipboard preserve indentation
 " F2 again turns that off.
 nnoremap <F2> :set invpaste paste?<CR>
@@ -91,7 +91,13 @@ map <c-h> <c-w>h
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 
-" Shortcuts
+" Toggle NERDTree window
+map <leader>n :NERDTreeToggle<CR>
+
+" Open NERDTree to the current directory
+map <leader>f :NERDTreeFind<CR>
+
+" Stamp last yanked text over current word
 nnoremap <leader>s "_diwP
 
 " Clear search matches
