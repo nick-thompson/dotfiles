@@ -51,32 +51,17 @@ set colorcolumn=80              " Mark the 80 column limit
 hi  ColorColumn guibg=#333436
 
 " Tab settings
-set ts=4                        " Tab size is 4 spaces
-set sw=4                        " Shift 4 spaces using V + < / V + >
+set ts=2                        " Tab size is 4 spaces
+set sw=2                        " Shift 4 spaces using V + < / V + >
 set expandtab                   " Use spaces instead of tabs
 
 " Settings by filetype
 filetype indent on              " Allow indent by filetype
 filetype plugin on              " Allow loading plugins by filetype
 
-autocmd FileType html
-  \ setlocal shiftwidth=2 |
-  \ setlocal tabstop=2
-autocmd FileType coffee
-  \ setlocal shiftwidth=2 |
-  \ setlocal tabstop=2
-autocmd FileType javascript
-  \ setlocal shiftwidth=2 |
-  \ setlocal tabstop=2
-autocmd FileType css
-  \ setlocal shiftwidth=2 |
-  \ setlocal tabstop=2
-autocmd FileType less
-  \ setlocal shiftwidth=2 |
-  \ setlocal tabstop=2
-autocmd FileType c
-  \ setlocal shiftwidth=2 |
-  \ setlocal tabstop=2
+autocmd FileType python
+  \ setlocal sw=4 |
+  \ setlocal ts=4
 
 " Key mappings
 let mapleader = ','
