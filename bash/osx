@@ -2,6 +2,14 @@
 
 # Additional bash configuration which is specific to OS X
 
+# Amend $PATH
+gnubin="$(brew --prefix coreutils)/libexec/gnubin"
+if [ -d ${gnubin} ]; then
+    PATH="$PATH:${gnubin}"
+    export PATH
+fi
+unset gnubin
+
 # See if we can source Homebrew's bash completion
 bash_completion_path="$(brew --prefix)/etc/bash_completion"
 
