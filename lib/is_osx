@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check whether or not we're running on OS X
+is_osx() {
+    local err_msg="Unable to detect operating system; assuming linux."
+    case $(uname -s | tr '[:upper:]' '[:lower:]') in
+        darwin) return 0 ;;
+        linux) return 1 ;;
+        *) e_warning "${err_msg}" && return 1 ;;
+    esac
+}
+

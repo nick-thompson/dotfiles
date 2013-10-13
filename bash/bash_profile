@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./lib/is_osx
+
 declare -a files=(
     "$HOME/.bash_profile.local" # Local and private settings not under version control (e.g. git credentials)
     "$HOME/.dotfiles/bash/exports" # Exports
