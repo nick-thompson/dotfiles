@@ -20,7 +20,7 @@ done
 unset files
 
 # If we're on OS X, there's a few more configs
-if [[ $(uname) =~ .*Darwin.* ]]; then
+if is_osx(); then
   source "$HOME/.dotfiles/bash/osx"
 fi
 
