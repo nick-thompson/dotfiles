@@ -6,7 +6,6 @@ cd ${DOTFILES_DIRECTORY}
 
 source ./lib/help
 source ./lib/utils
-source ./lib/brew
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -18,44 +17,11 @@ fi
 for opt in $@
 do
     case $opt in
-        --no-packages) skip_packages=true ;;
         --no-update) skip_update=true ;;
-        --no-brew) skip_homebrew=true ;;
+        --no-brew) skip_brew=true ;;
         -*|--*) e_warning "Warning: invalid option $opt" ;;
     esac
 done
-
-brew() {
-    # Before relying on Homebrew, check that packages can be compiled
-    if ! type_exists 'gcc'; then
-        e_error "The XCode Command Line Tools must be installed first."
-        echo "  https://developer.apple.com/downloads"
-        exit 1
-    fi
-
-    # Check for Homebrew
-    if ! type_exists 'brew'; then
-        e_header "Installing Homebrew..."
-        ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
-    fi
-
-    # Check for git
-    if ! type_exists 'git'; then
-        e_header "Updating Homebrew..."
-        brew update
-        e_header "Installing Git..."
-        brew install git
-    fi
-
-    # Install and update packages
-    if [[ $skip_packages ]]; then
-        printf "Skipped package installations.\n"
-    else
-        printf "Updating packages...\n"
-        # Install Homebrew formulae
-        run_brew
-    fi
-}
 
 link() {
     # Force create/replace the symlink.
@@ -86,16 +52,14 @@ mirrorfiles() {
     e_success "Dotfiles update complete!"
 }
 
-# Install the Homebrew setup unless otherwise specified
-if [[ $skip_homebrew ]]; then
-    printf "Skipping homebrew install.\n"
-else
-    brew
+# Bootstrap a Homebrew installation
+if is_osx && ! $skip_brew; then
+  source ./scripts/brew
 fi
 
 # Conditionally sync with the remote repository
 if [[ $skip_update ]]; then
-    printf "Skipped dotfiles sync.\n"
+    printf "Skipped dotfiles update.\n"
 elif ! type_exists 'git'; then
     printf "You'll need git to sync with the remote repository.\n"
 else
