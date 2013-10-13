@@ -10,8 +10,7 @@ if [[ -r $bash_completion_path ]]; then
     source $bash_completion_path
 fi
 
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# Local IP address
 alias localip="ipconfig getifaddr en1"
 
 # Copy my public key to my clipboard

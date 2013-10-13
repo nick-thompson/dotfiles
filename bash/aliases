@@ -11,3 +11,5 @@ alias la="ls -AGFoh"
 # List all except . and ..., color, mark file types, long form no use group, order by last modified, file size
 alias lat="ls -AGFoth"
 
+# IP address
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
