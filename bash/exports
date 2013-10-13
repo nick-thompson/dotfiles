@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Exports
-
 # Colors
 export CLICOLOR=1
 

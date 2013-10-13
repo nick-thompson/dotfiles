@@ -1,16 +1,7 @@
 #!/bin/bash
 
-# bash_prompt
-
-# Example:
-# nicolas@host: ~/.dotfiles on master[+!?$]
-# $
-
-# Screenshot: http://i.imgur.com/DSJ1G.png
-# iTerm2 prefs: import Solarized theme (disable bright colors for bold text)
 # Color ref: http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 # More tips: http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
-
 
 # Check that terminfo exists before changing TERM var to xterm-256color
 # Prevents prompt flashing in Mac OS X 10.6 Terminal.app
@@ -24,14 +15,12 @@ tput sgr 0 0
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
-YELLOW=$(tput setaf 3)
-ORANGE=$(tput setaf 3)
-RED=$(tput setaf 1)
 MAGENTA=$(tput setaf 1)
-VIOLET=$(tput setaf 5)
-BLUE=$(tput setaf 4)
-CYAN=$(tput setaf 6)
 GREEN=$(tput setaf 2)
+ORANGE=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+VIOLET=$(tput setaf 5)
+CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 style_user="\[${RESET}${GREEN}\]"
@@ -42,10 +31,10 @@ style_branch="${CYAN}"
 
 if [[ "$SSH_TTY" ]]; then
     # connected via ssh
-    style_host="\[${BOLD}${RED}\]"
+    style_host="\[${BOLD}${MAGENTA}\]"
 elif [[ "$USER" == "root" ]]; then
     # logged in as root
-    style_user="\[${BOLD}${RED}\]"
+    style_user="\[${BOLD}${MAGENTA}\]"
 fi
 
 is_git_repo() {
