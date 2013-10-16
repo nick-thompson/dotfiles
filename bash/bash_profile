@@ -26,6 +26,9 @@ if is_osx; then
   source "$HOME/.dotfiles/bash/osx"
 fi
 
+# Vi shell mode
+set -o vi
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -45,4 +48,4 @@ done
 # }}}
 
 # Load NVM
-[[ -s /Users/nick/.nvm/nvm.sh ]] && . /Users/nick/.nvm/nvm.sh
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
