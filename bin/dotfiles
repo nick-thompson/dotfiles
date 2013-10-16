@@ -49,6 +49,7 @@ mirrorfiles() {
     link "vim"                ".vim"
     link "vim/vimrc"          ".vimrc"
     link "vim/gvimrc"         ".gvimrc"
+    link "tmux.conf"          ".tmux.conf"
 
     e_success "Dotfiles update complete!"
 }
@@ -61,8 +62,6 @@ fi
 # Conditionally sync with the remote repository
 if [[ $skip_update ]]; then
     printf "Skipped dotfiles update.\n"
-elif ! type_exists 'git'; then
-    printf "You'll need git to sync with the remote repository.\n"
 else
     e_header "Syncing dotfiles..."
     # Pull down the latest changes
