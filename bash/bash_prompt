@@ -23,8 +23,8 @@ VIOLET=$(tput setaf 5)
 CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
-style_user="\[${RESET}${GREEN}\]"
-style_host="\[${RESET}${ORANGE}\]"
+style_user="\[${RESET}${VIOLET}\]"
+style_host="\[${RESET}${GREEN}\]"
 style_path="\[${RESET}${MAGENTA}\]"
 style_chars="\[${RESET}${WHITE}\]"
 style_branch="${CYAN}"
@@ -96,7 +96,9 @@ function prompt_git() {
 
 # Build the prompt
 PS1="${style_user}\u" # Username
-PS1+="${style_chars} in " # :
+PS1+="${style_chars} at "
+PS1+="${style_host}\h" # :
+PS1+="${style_chars}: " # :
 PS1+="${style_path}\w" # Working directory
 PS1+="\$(prompt_git)" # Git details
 PS1+="${style_chars} \$ \[${RESET}\]" # $ (and reset color)
