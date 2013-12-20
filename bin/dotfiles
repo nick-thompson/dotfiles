@@ -6,7 +6,6 @@ cd ${DOTFILES_DIRECTORY}
 
 source ./lib/help
 source ./lib/utils
-source ./lib/is_osx
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -57,6 +56,12 @@ mirrorfiles() {
 # Bootstrap a Homebrew installation
 if is_osx && ! $skip_brew; then
   source ./scripts/brew
+fi
+
+# For fresh installs on OS X machines, write OS X-specific config
+# to a bash_profile.local
+if is_osx && [ ! -f ${HOME}/.bash_profile.local ]; then
+    cp ${DOTFILES_DIRECTORY}/bash/osx ${HOME}/.bash_profile.local
 fi
 
 # Conditionally sync with the remote repository

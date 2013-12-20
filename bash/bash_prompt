@@ -29,14 +29,6 @@ style_path="\[${RESET}${MAGENTA}\]"
 style_chars="\[${RESET}${WHITE}\]"
 style_branch="${CYAN}"
 
-if [[ "$SSH_TTY" ]]; then
-    # connected via ssh
-    style_host="\[${BOLD}${MAGENTA}\]"
-elif [[ "$USER" == "root" ]]; then
-    # logged in as root
-    style_user="\[${BOLD}${MAGENTA}\]"
-fi
-
 is_git_repo() {
     $(git rev-parse --is-inside-work-tree &> /dev/null)
 }

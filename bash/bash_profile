@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source $HOME/.dotfiles/lib/is_osx
-
 declare -a files=(
     "$HOME/.bash_profile.local" # Local and private settings not under version control (e.g. git credentials)
     "$HOME/.dotfiles/bash/exports" # Exports
@@ -20,11 +18,6 @@ do
 done
 
 unset files
-
-# If we're on OS X, there's a few more configs
-if is_osx; then
-  source "$HOME/.dotfiles/bash/osx"
-fi
 
 # Vi shell mode
 set -o vi

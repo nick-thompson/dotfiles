@@ -9,10 +9,8 @@ OS X dotfiles - Nicolas Gallagher - http://nicolasgallagher.com/
 Usage: $(basename "$0") [options]
 
 Options:
-    --no-packages   Suppress package updates
+    --no-brew       Suppress attempts to update/install Homebrew
     --no-update     Suppress pulling from the remote repository
-
-Documentation can be found at https://github.com/necolas/dotfiles/
 
 Copyright (c) Nicolas Gallagher
 Licensed under the MIT license."
