@@ -2,7 +2,6 @@
 
 My OS X dotfiles.
 
-
 ## How to install
 
 The installation step requires the [XCode Command Line
@@ -37,8 +36,8 @@ Options:
         <td>Help</td>
     </tr>
     <tr>
-        <td><code>--no-packages</code></td>
-        <td>Suppress package updates</td>
+        <td><code>--no-brew</code></td>
+        <td>Suppress attempts to install/update Homebrew</td>
     </tr>
     <tr>
         <td><code>--no-update</code></td>
@@ -104,62 +103,7 @@ The `git/gitconfig` file is copied to `~/.gitconfig`, so any private git
 configuration specified in `~/.bash_profile.local` will not be committed to
 your dotfiles repository.
 
-## Adding new git submodules
+## Vim
 
-If you want to add more git submodules, e.g. Vim plugins to be managed by
-pathogen, then follow these steps while in the root of the superproject.
-
-```bash
-# Add the new submodule
-git submodule add git://example.com/remote/path/to/repo.git vim/bundle/one-submodule
-# Initialize and clone the submodule
-git submodule update --init
-# Stage the changes
-git add vim/bundle/one-submodule
-# Commit the changes
-git commit -m "Add a new submodule: one-submodule"
-```
-
-
-## Updating git submodules
-
-Updating individual submodules within the superproject:
-
-```bash
-# Change to the submodule directory
-cd vim/bundle/one-submodule
-# Checkout the desired branch (of the submodule)
-git checkout master
-# Pull from the tip of master (of the submodule - could be any sha or pointer)
-git pull origin master
-# Go back to main dotfiles repo root
-cd ../../..
-# Stage the submodule changes
-git add vim/bundle/one-submodule
-# Commit the submodule changes
-git commit -m "Update submodule 'one-submodule' to the latest version"
-# Push to a remote repository
-git push origin master
-```
-
-Now, if anyone updates their local repository from the remote repository, then
-using `git submodule update` will update the submodules (that have been
-initialized) in their local repository. N.B This will wipe away any local
-changes made to those submodules.
-
-
-## Acknowledgements
-
-Most of this configuration belongs to Nicolas Gallagher, with only minor
-tweaks here and there from me. This readme isn't even my work ;)
-
-Inspiration and code was taken from many sources, including:
-
-* [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens)
-  [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-* [@tejr](https://github.com/tejr) (Tom Ryder)
-  [https://github.com/tejr/dotfiles](https://github.com/tejr/dotfiles)
-* [@gf3](https://github.com/gf3) (Gianni Chiappetta)
-  [https://github.com/gf3/dotfiles](https://github.com/gf3/dotfiles)
-* [@cowboy](https://github.com/cowboy) (Ben Alman)
-  [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
+Vim plugins are managed with [Vundle](https://github.com/gmarik/vundle). With
+any updates or additional plugins, run :BundleInstall from inside Vim.
