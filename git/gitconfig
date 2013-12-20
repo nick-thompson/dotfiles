@@ -22,7 +22,9 @@
     grapha = log --pretty=nice --date-order --graph --all
 
     # Custom pretty log
-    logp = log --pretty=nice --date-order
+    logp = log --graph --abbrev-commit --decorate --all --date=relative \
+      --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) \
+      %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 
     # Diffstat log
     logst = log --stat
