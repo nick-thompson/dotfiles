@@ -31,6 +31,9 @@
     # Short format diffstat log
     logsf = log --stat --format=oneline --abbrev-commit
 
+    # Show files from last commit
+    sf = !git show --name-only --oneline | tail -n +2
+
     # Display the number of commits per author in numerical order
     who = shortlog -sn --
 
