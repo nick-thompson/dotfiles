@@ -54,8 +54,10 @@ mirrorfiles() {
 }
 
 # Bootstrap a Homebrew installation
-if is_osx && ! $skip_brew; then
-  source ./scripts/brew
+if ! is_osx || [[ $skip_brew ]]; then
+    printf "Skipped Homebrew setup.\n"
+else
+    source ./scripts/brew
 fi
 
 # For fresh installs on OS X machines, write OS X-specific config
