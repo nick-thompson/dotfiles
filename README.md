@@ -60,6 +60,7 @@ Homebrew formulae:
 * [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
 * [wget](http://www.gnu.org/software/wget/)
+* [mosh](http://mosh.mit.edu/)
 
 N.B. If your pre-existing Homebrew installation is not in `usr/local` then you
 must add your custom location's `bin` to the PATH in `.bash_profile.local`:

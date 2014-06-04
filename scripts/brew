@@ -43,6 +43,7 @@ local -a desired_formulae=(
     'phantomjs'
     'tree'
     'wget'
+    'mobile-shell'
 )
 
 for index in ${!desired_formulae[*]}
