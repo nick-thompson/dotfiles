@@ -72,6 +72,9 @@ autocmd FileType sh
 " Airline
 let g:airline_theme='simple'
 
+" NERDTree
+let NERDTreeQuitOnOpen = 1
+
 " Key mappings
 let mapleader = ','
 
