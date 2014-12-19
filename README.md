@@ -9,7 +9,7 @@ Tools](https://developer.apple.com/downloads) and may overwrite existing
 dotfiles in your HOME and `.vim` directories.
 
 ```bash
-git clone git://github.com/nick-thompson/dotfiles.git ~/.dotfiles
+git clone git@github.com:nick-thompson/dotfiles.git ~/.dotfiles
 ~/.dotfiles/bin/dotfiles
 ```
 
