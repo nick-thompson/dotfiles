@@ -13,3 +13,6 @@ alias lat="ls -AGFoth"
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Overwrite mvim to force opening tabs in existing window
+alias mvim="mvim --remote-tab-silent"
