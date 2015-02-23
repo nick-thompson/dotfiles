@@ -110,6 +110,12 @@ nnoremap <leader>s "_diwP
 " Clear search matches
 nnoremap <leader><space> :noh<cr>
 
+" Alias :w, :q
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
     " work properly when Vim is used inside tmux and GNU screen.
