@@ -30,12 +30,13 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'jordwalke/flatlandia'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
+Bundle 'rust-lang/rust.vim'
 
 " Settings
 syntax on                       " Enable syntax highlighting
 filetype plugin indent on       " Required by Vundle
 
-colorscheme flatlandia
+colorscheme smyck
 
 " General
 set encoding=utf-8              " Character encoding
