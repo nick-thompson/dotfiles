@@ -28,6 +28,8 @@ Bundle 'wavded/vim-stylus'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'jordwalke/flatlandia'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
 
 " Settings
 syntax on                       " Enable syntax highlighting
