@@ -57,7 +57,6 @@ Homebrew formulae:
 * [bash-completion](http://bash-completion.alioth.debian.org/)
 * jpeg
 * [optipng](http://optipng.sourceforge.net/)
-* [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
 * [wget](http://www.gnu.org/software/wget/)
 * [mosh](http://mosh.mit.edu/)

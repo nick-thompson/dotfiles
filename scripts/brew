@@ -40,7 +40,6 @@ local -a desired_formulae=(
     'bash-completion'
     'jpeg'
     'optipng'
-    'phantomjs'
     'tree'
     'wget'
     'mobile-shell'
