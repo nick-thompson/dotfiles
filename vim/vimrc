@@ -31,6 +31,7 @@ Bundle 'jordwalke/flatlandia'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'rust-lang/rust.vim'
+Bundle 'flowtype/vim-flow'
 
 " Settings
 syntax on                       " Enable syntax highlighting
